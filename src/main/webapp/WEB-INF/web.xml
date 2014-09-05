@@ -26,9 +26,38 @@
 		<url-pattern>*.json</url-pattern>
     </servlet-mapping>
 
-<!-- If we add this listener Spring will search for a file named applicationContext.xml -->
+<!-- 1) If we add this listener Spring will search for a file named applicationContext.xml -->
 		<listener>
 			<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 		</listener>
+		
+<!-- 2) This is filter for Lazy fix this approach is not best appraoch  -->
+<!-- This thing is applicable for related entities -->		
+		<!-- <filter>
+			<filter-name>ormInViewFilter</filter-name>
+			<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+			<init-param>
+			<param-name>entityManagerFactoryBeanName</param-name>
+			<param-value>emf</param-value>
+					
+			</init-param>
+			
+		</filter>
+		<filter-mapping>
+			<filter-name>ormInViewFilter</filter-name>
+			<url-pattern>/*</url-pattern>
+		</filter-mapping> -->
+
+<!-- 3) Spring Security Filter  -->
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
   
 </web-app>

@@ -9,6 +9,7 @@
 	<properties>
 		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
 		<apache.tiles>3.0.3</apache.tiles>
+		<spring.security.version>3.2.3.RELEASE</spring.security.version>
 	</properties>
 
 	<dependencies>
@@ -202,13 +203,39 @@
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.3.2</version>
+			<version>2.2.8</version>
 		</dependency>
+		
+		<!-- JSTL dependencies -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	
+	
+	  <!-- Spring Security Stuff -->
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	
+	<!-- Spring Security TagLib -->
+	
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-taglibs</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+
 
 	</dependencies>
-	
-	
-		
 
 	<build>
 
